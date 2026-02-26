@@ -1,6 +1,6 @@
 ---
 title: "Lab 07 - Conveying the right message through visualisation"
-author: "Insert your name here"
+author: "Charlize Ezernack"
 date: "Insert date here"
 output: github_document
 ---
@@ -9,6 +9,7 @@ output: github_document
 
 ```{r load-packages, message=FALSE}
 library(tidyverse) 
+  df <- read_csv("kansas_grouped_rolling_avg.csv") 
 ```
 
 ### Exercise 1
