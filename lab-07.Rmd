@@ -12,15 +12,19 @@ library(tidyverse)
   df <- read_csv("kansas_grouped_rolling_avg.csv") 
 ```
 
-### Exercise 1
-
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
-
 ### Exercise 2
 
-...
+```{r revisualize}
+ggplot(df, aes(x = date, y = rolling_avg, color = mask_mandate)) + geom_line() + labs(title = "Kansas COVID-19 7-Day Rolling Average of Daily Cases/Per 100K Population", subtitle = "Mask Counties Vs. No-Mask Mandate Counties", caption = "Source: Kansas Department of Health and Environment", x = "Date", y = "Rolling Average", color = "Type of Mandate")
+
+```
+
+### Exercise 3
+
+In the new visualization, the rolling average is depicted on one y-axis which indicates the trends more clearly than the previous dual y-axis. The new graph shows very clearly how on average, the counties with the mask mandate had higher rolling averages. 
+
+### Exercise 4
+
+Based on this graph, we can see that COVID-19 rates are not protected from mask mandating counties. Instead, a formal mask mandate might deter people from wearing masks since they were forced to and that might of added to higher cases of COVID-19. The visualization shows that mask mandating counties have significantly more cases on a 7 day rolling basis. From my own personal experience in a mask mandating county, a lot of people still wore masks to school and such, but people tended to incorrectly wear them. Hence, I think Covid-19 cases is less about the mandate itself, but more how individuals on average comply with maintaining safe practices. 
 
 Add exercise headings as needed.
