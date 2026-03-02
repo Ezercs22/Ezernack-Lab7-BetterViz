@@ -1,22 +1,77 @@
 Lab 07 - Conveying the right message through visualisation
 ================
-Insert your name here
+Charlize Ezernack
 Insert date here
 
 ### Load packages and data
 
 ``` r
 library(tidyverse) 
+  df <- read_csv("kansas_grouped_rolling_avg.csv") 
 ```
-
-### Exercise 1
-
-Remove this text, and add your answer for Exercise 1 here. Add code
-chunks as needed. Don’t forget to label your code chunk. Do not use
-spaces in code chunk labels.
 
 ### Exercise 2
 
-…
+``` r
+ggplot(df, aes(x = date, y = rolling_avg, color = mask_mandate)) + geom_line() + labs(title = "Kansas COVID-19 7-Day Rolling Average of Daily Cases/Per 100K Population", subtitle = "Mask Counties Vs. No-Mask Mandate Counties", caption = "Source: Kansas Department of Health and Environment", x = "Date", y = "Rolling Average", color = "Type of Mandate")
+```
 
-Add exercise headings as needed.
+![](lab-07_files/figure-gfm/revisualize-1.png)<!-- -->
+
+### Exercise 3
+
+In the new visualization, the rolling average is depicted on one y-axis
+which indicates the trends more clearly than the previous dual y-axis.
+The new graph shows very clearly how mandates decreased the amount of
+average cases of COVID-19.
+
+### Exercise 4
+
+Based on this graph, we can see that COVID-19 rates are protected from
+mask mandating counties. There was a significant drop once mask mandates
+were introduced, and masks helped to stabilize the amount of cases
+within these counties.
+
+### Exercise 5
+
+The variables used in this visualization are dates, rolling average of
+cases, and mandate. The current variables used convey the message that
+mask mandates helped decrease the amount of daily cases. Especially with
+the line graph, we can see the huge drop occuring in cases in counties
+with the mandate vs those with the mandate. However, because of the
+scale of the y axis, it mainly focuses on this drop, and not really how
+the mask mandated counties still contain higher cases on average. In my
+personal experience, a formal mask mandate might deter people from
+wearing masks since they were forced to and that might of added to
+higher cases of COVID-19.
+
+### Exercise 6
+
+I want to convey that even though there was a drop after the
+introduction of mask-mandates, the rates of cases are still higher than
+the counties with no mask mandates. The visualization should reflect
+that mask mandating counties have significantly more cases on a 7 day
+rolling basis. From my own personal experience in a mask mandating
+county, a lot of people still wore masks to school and such, but people
+tended to incorrectly wear them. Hence, I think the amount of Covid-19
+cases is less about the mandate itself, but more how individuals on
+average comply with maintaining safe practices. To do so I will filter
+out the outlier of 24 cases.
+
+### Exercise 7
+
+``` r
+df %>% filter(rolling_avg < 20) %>% ggplot(aes(x = date, y = rolling_avg, color = mask_mandate)) + geom_line() + labs(title = "Kansas COVID-19 7-Day Rolling Average of Daily Cases/Per 100K Population", subtitle = "Mask Counties Vs. No-Mask Mandate Counties", caption = "Source: Kansas Department of Health and Environment", x = "Date", y = "Rolling Average", color = "Type of Mandate")
+```
+
+![](lab-07_files/figure-gfm/revisualize2-1.png)<!-- -->
+
+### Exercise 8
+
+<https://flowingdata.com/2014/04/16/weird-stacked-area-map-thing/>
+
+I found this graph to be misleading since it is trying to visualize
+demographics of race over the general map geographic. It makes it
+misleading because the audience does not know whether the distribution
+of race is trying to be depicted those geographic locations as well,
+which is just not true.
